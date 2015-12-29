@@ -22,3 +22,23 @@ publishTo := {
 }
 
 publishArtifact in Test := false
+
+pomExtra := <url>https://github.com/skozlov/commons-scala</url>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<url>git@github.com:skozlov/commons-scala.git</url>
+		<connection>scm:git:git@github.com:skozlov/commons-scala.git</connection>
+	</scm>
+	<developers>
+		<developer>
+			<id>skozlov</id>
+			<name>Sergey Kozlov</name>
+			<url>https://github.com/skozlov</url>
+		</developer>
+	</developers>
