@@ -27,10 +27,10 @@ println(matrix.containsCellWithCoordinates(Coordinates(2, 2))) //false
 println(matrix(Coordinates(0, 0))) //1
 ```
 
-### `Random.elementFrom(sequence: Seq[A])`
+### `Random.elementFrom(traversable: Traversable[A])`
 
-`Random.elementFrom(sequence: Seq[A])` returns a random element of the given sequence.
-Each element has probability of 1/${sequence.size}.
+`Random.elementFrom(traversable: Traversable[A])` returns a random element of the given finite traversable.
+Each element has probability of 1/${traversable.size}.
 
 Example:
 

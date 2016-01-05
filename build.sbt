@@ -2,13 +2,13 @@ organization := "com.github.skozlov"
 
 name := "commons-scala"
 
-version := "0.1.0"
+version := "0.1.1"
 
 scalaVersion := "2.11.7"
 
 libraryDependencies ++= List(
 	"org.scalatest" %% "scalatest" % "2.2.4" % "test",
-	"io.reactivex" % "rxscala_2.11" % "0.25.0"
+	"io.reactivex" % "rxscala_2.11" % "0.25.1"
 )
 
 publishMavenStyle := true

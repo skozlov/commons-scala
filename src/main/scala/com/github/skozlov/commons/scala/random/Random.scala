@@ -5,7 +5,11 @@ package com.github.skozlov.commons.scala.random
   */
 object Random {
 	/**
-	  * Returns a random element of the given sequence. Each element has probability of 1/${sequence.size}.
+	  * Returns a random element of the given finite traversable.
+	  * Each element has probability of 1/${traversable.size}.
 	  */
-	def elementFrom[A](sequence: Seq[A]): A = sequence(util.Random.nextInt(sequence.size))
+	def elementFrom[A](traversable: Traversable[A]): A = {
+		val index = util.Random.nextInt(traversable.size)
+		(traversable drop index).head
+	}
 }
