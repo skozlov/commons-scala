@@ -1,6 +1,10 @@
 # commons-scala
 Some useful scala code to use in JVM-based projects
 
+## Public artifact
+
+http://mvnrepository.com/artifact/com.github.skozlov/commons-scala_2.11
+
 ## Features
 
 ### Matrix
