@@ -14,4 +14,6 @@ case class SafeLock(unsafe: ReentrantLock) {
   @throws[InterruptedException]
   @throws[TimeoutException]
   def locking[R](f: () => R)(implicit deadline: Deadline): R = unsafe.locking(f)(deadline)
+  
+  def newCondition(): SafeCondition = SafeCondition(unsafe.newCondition())
 }
