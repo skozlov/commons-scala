@@ -3,10 +3,10 @@ package com.github.skozlov.commons.scala.concurrent.lock
 import com.github.skozlov.commons.scala.time.Deadline
 
 import java.util.concurrent.TimeoutException
-import java.util.concurrent.locks.Lock
+import java.util.concurrent.locks.{Lock, ReentrantLock}
 import scala.concurrent.duration.Duration
 
-case class SafeLock(unsafe: Lock) {
+case class SafeLock(unsafe: Lock = new ReentrantLock()) {
   @throws[InterruptedException]
   @throws[TimeoutException]
   def locking[R](timeout: Duration, f: () => R): R = unsafe.locking(timeout, f)

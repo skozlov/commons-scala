@@ -13,17 +13,21 @@ extension (condition: Condition) {
     }
   }
 
+  def awaitWithDeadline(implicit deadline: Deadline): Unit = {
+    if deadline.isOver then throw new TimeoutException(s"Condition was never true before $deadline")
+    if (deadline == Deadline.Inf) {
+      condition.await()
+    } else {
+      condition.awaitNanos(deadline.toTimeout.toNanos)
+    }
+  }
+
   @throws[InterruptedException]
   @throws[TimeoutException]
   @tailrec
   def await(exitCondition: () => Boolean)(implicit deadline: Deadline): Unit = {
     if (!exitCondition()) {
-      if deadline.isOver then throw new TimeoutException(s"Condition was never true before $deadline")
-      if (deadline == Deadline.Inf) {
-        condition.await()
-      } else {
-        condition.awaitNanos(deadline.toTimeout.toNanos)
-      }
+      awaitWithDeadline
       await(exitCondition)(deadline)
     }
   }
